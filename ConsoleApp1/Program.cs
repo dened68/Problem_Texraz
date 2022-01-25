@@ -10,14 +10,27 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
+            Random rnd = new Random();
             List<Point> points = new List<Point>();
 
             points = getpoints();
 
-            Direction direction = new Direction(points);
+            
 
-            Console.WriteLine(direction.direction());
 
+            if (rnd.Next(2) == 0)
+            {
+                Direction direction = new Direction(points);
+
+                Console.WriteLine(direction.direction());
+            }
+            else
+            {
+                points.Reverse();
+                Direction direction = new Direction(points);
+
+                Console.WriteLine(direction.direction());
+            }
         }
 
         static List<Point> getpoints()
